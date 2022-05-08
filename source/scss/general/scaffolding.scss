@@ -65,6 +65,21 @@ body {
   }
 }
 
+body.loaded {
+  .page-header {
+    opacity: 1;
+    animation: fadeIn cubic-bezier(.15,0,.1,1.09) 1s;
+  }
+
+  .screen__footer {
+    transform: translateY(0);
+  }
+
+  .page-header__logo {
+    transform: translateX(0);
+  }
+}
+
 a {
   text-decoration: none;
 }
