@@ -269,12 +269,6 @@
       }
     }
 
-    &.active {
-      &::after {
-        width: 100%;
-      }
-    }
-
     &:hover,
     &:focus {
       color: $c-purple;

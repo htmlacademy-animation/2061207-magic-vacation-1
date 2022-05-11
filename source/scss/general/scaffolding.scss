@@ -78,6 +78,22 @@ body.loaded {
   .page-header__logo {
     transform: translateX(0);
   }
+
+  .page-header__menu {
+    a {
+      &.active {
+        &::after {
+          right: auto;
+          left: 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .social-block__toggler {
+    transform: scale(1);
+  }
 }
 
 a {
