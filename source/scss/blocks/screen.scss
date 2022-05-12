@@ -13,7 +13,7 @@
   &--intro.active {
     .intro__message {
       opacity: 1;
-      animation: intro-message ease-in-out 1s;
+      animation: fadeInUp ease-in-out 1s;
     }
   }
 
@@ -22,7 +22,7 @@
     .swiper-slide-next .slider__item-text
     {
       opacity: 1;
-      animation: item-text ease-in-out 1s;
+      animation: fadeInRight ease-in-out 1s;
     }
   }
   &--game.active {
@@ -64,6 +64,8 @@
   bottom: 0;
   left: 0;
   right: 0;
+  transform: translateY(100%);
+  transition: transform cubic-bezier(.15,0,.1,1.09) 1s;
   color: $c-dark;
   background-color: $c-light;
   z-index: 1;
@@ -374,26 +376,4 @@
 
 .screen--rules {
   background-color: $c-dark;
-}
-
-@keyframes info-message {
-  from {
-    transform: translateY(10px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes item-text {
-  from {
-    transform: translateX(10px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
 }
