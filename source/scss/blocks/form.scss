@@ -35,7 +35,7 @@
   margin-right: 3rem;
   padding: 0 5.6rem;
   height: 6rem;
-  width: calc(1% - 21rem);
+  width: 1%;
   text-transform: uppercase;
   font: inherit;
   font-size: 2.4rem;
@@ -54,7 +54,7 @@
     margin-right: 30px;
     padding: 0 56px;
     height: 60px;
-    width: calc(100% - 210px);
+    width: 1%;
     font-size: 24px;
     border-radius: 30px;
   }
@@ -62,19 +62,19 @@
   @media (orientation: portrait) {
     margin-right: 1rem;
     padding: 0 2.5rem;
-    width: calc(100% - 5rem);
+    width: 1%;
     height: 4rem;
     font-size: 1.6rem;
   }
 
   @media (max-width: $tablet) and (orientation: landscape) {
-    width: calc(100% - 9rem);
+    width: 1%;
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
     margin-right: 1rem;
     padding: 0 2.5rem;
-    width: calc(100% - 5rem);
+    width: 1%;
     height: 4rem;
     font-size: 1.6rem;
   }
