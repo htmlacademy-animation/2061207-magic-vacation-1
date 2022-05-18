@@ -28,6 +28,22 @@
   &--game.active {
     .form__field {
       width: calc(100% - 21rem);
+
+      @media (min-width: $stop-scaling) {
+        width: calc(100% - 210px);
+      }
+
+      @media (orientation: portrait) {
+        width: calc(100% - 5rem);
+      }
+
+      @media (max-width: $tablet) and (orientation: landscape) {
+        width: calc(100% - 9rem);
+      }
+
+      @media (max-width: $mobile) and (orientation: landscape) {
+        width: calc(100% - 5rem);
+      }
     }
   }
 

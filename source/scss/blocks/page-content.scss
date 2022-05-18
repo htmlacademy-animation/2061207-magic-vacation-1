@@ -1,0 +1,24 @@
+.page-content {
+  position: relative;
+
+  &::after {
+    content: "";
+    visibility: visible;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: $c-dark;
+    transform: translateY(100%);
+    transition: transform 0.5s linear;
+  }
+
+  &_fill::after {
+    transform: translateY(0);
+  }
+  &_hidden::after {
+    visibility: hidden;
+  }
+}

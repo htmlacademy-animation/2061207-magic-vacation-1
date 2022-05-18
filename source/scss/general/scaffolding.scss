@@ -92,7 +92,9 @@ body.loaded {
   }
 
   .social-block__toggler {
-    transform: scale(1);
+    &::before {
+      transform: translate(-50%, -50%) scale(1);
+    }
   }
 }
 

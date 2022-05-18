@@ -1,4 +1,5 @@
 import throttle from 'lodash/throttle';
+import {Page} from "./constants";
 
 export default class FullPageScroll {
   constructor() {
@@ -8,10 +9,14 @@ export default class FullPageScroll {
 
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
+    this.mainBlock = document.querySelector(`.page-content`);
 
-    this.activeScreen = 0;
+    this.activeScreen = Page.MAIN;
+    this.prevActiveScreen = Page.MAIN;
     this.onScrollHandler = this.onScroll.bind(this);
     this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
+    this.endTransitionMainScreenHandler = this.endTransitionListener.bind(this);
+
   }
 
   init() {
@@ -20,6 +25,19 @@ export default class FullPageScroll {
 
     this.onUrlHashChanged();
   }
+
+  endTransitionListener() {
+    this.mainBlock.classList.remove(`page-content_fill`);
+    this.mainBlock.classList.add(`page-content_hidden`);
+    this.mainBlock.removeEventListener(`transitionend`, this.endTransitionMainScreenHandler);
+  }
+
+  fillScreen() {
+    this.mainBlock.classList.remove(`page-content_hidden`);
+    this.mainBlock.classList.add(`page-content_fill`);
+    this.mainBlock.addEventListener(`transitionend`, this.endTransitionMainScreenHandler);
+  }
+
 
   onScroll(evt) {
     if (this.scrollFlag) {
@@ -40,13 +58,21 @@ export default class FullPageScroll {
   }
 
   onUrlHashChanged() {
+    this.prevActiveScreen = this.activeScreen;
     const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
     this.activeScreen = (newIndex < 0) ? 0 : newIndex;
     this.changePageDisplay();
   }
 
   changePageDisplay() {
-    this.changeVisibilityDisplay();
+    if (this.prevActiveScreen === Page.HISTORY && this.activeScreen === Page.GIFT) {
+      this.fillScreen();
+      setTimeout(() => {
+        this.changeVisibilityDisplay();
+      }, 500);
+    } else {
+      this.changeVisibilityDisplay();
+    }
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();
   }
