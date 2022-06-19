@@ -31,3 +31,51 @@
     opacity: 1;
   }
 }
+
+@keyframes fadeInRulesNumberBackground {
+  0% {
+    transform: scale3d(0, 0, 1);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInRulesNumber {
+  0%,
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInRulesName {
+  0% {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+
+  90% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInGoBtn {
+  0% {
+    transform: scale3d(0.3, 1, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
