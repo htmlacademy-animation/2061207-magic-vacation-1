@@ -58,3 +58,15 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@mixin show-rules-item-with-delay($count, $delayStep) {
+  @for $i from 1 through $count {
+    &:nth-child(#{$i + 1}) {
+      .rules__name,
+      &:before,
+      &:after {
+        animation-delay: $i * $delayStep;
+      }
+    }
+  }
+}
