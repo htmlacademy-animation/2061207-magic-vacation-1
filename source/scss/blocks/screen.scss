@@ -15,6 +15,10 @@
       opacity: 1;
       animation: fadeInUp ease-in-out 1s;
     }
+
+    & .appearing-letters__symbol {
+      transform: translate3d(0, 10%, 0);
+    }
   }
 
   &--story.active {
@@ -24,13 +28,53 @@
       opacity: 1;
       animation: fadeInRight ease-in-out 1s;
     }
+
+    & .appearing-letters__symbol {
+      transform: translate3d(0, 10%, 0);
+    }
   }
+
+  &--prizes.active {
+    & .appearing-letters__symbol {
+      transform: translate3d(0, 10%, 0);
+    }
+  }
+
+  &--rules.active {
+    & .appearing-letters__symbol {
+      transform: translate3d(0, 10%, 0);
+    }
+  }
+
   &--game.active {
+    & .appearing-letters__symbol {
+      transform: translate3d(0, 10%, 0);
+    }
+  }
+
+  &.screen--animation{
+    & .result__img-wrapper .result__img {
+      &--flamingo {
+        transition: transform cubic-bezier(0.69, 1.5, 0.83, 1) $result-animation-delay;
+        transform: translateY(0);
+      }
+      &--suitcase {
+        transition: transform cubic-bezier(0.69, 1.5, 0.83, 1.18) $result-animation-delay;
+        transform: translateY(0);
+      }
+      &--leaf-left,
+      &--leaf-right,
+      &--leaf-green {
+        transition: opacity ease-out $result-animation-delay;
+        opacity: 1;
+      }
+    }
+
     .form__field {
       width: calc(100% - 21rem);
 
       @media (min-width: $stop-scaling) {
-        width: calc(100% - 210px);
+        width: calc(100% - 10rem);
       }
 
       @media (orientation: portrait) {
