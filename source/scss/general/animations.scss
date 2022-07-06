@@ -73,10 +73,10 @@
 
 @keyframes fadeInGoBtn {
   0% {
-    transform: scale3d(0.3, 1, 1);
+    max-width: 0;
   }
   100% {
-    transform: scale3d(1, 1, 1);
+    max-width: 200px;
   }
 }
 
