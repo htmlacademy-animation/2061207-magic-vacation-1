@@ -15,6 +15,10 @@
       opacity: 1;
       animation: fadeInUp ease-in-out 1s;
     }
+
+    & .appearing-letters__symbol {
+      transform: translate3d(0, 10%, 0);
+    }
   }
 
   &--story.active {
@@ -24,13 +28,84 @@
       opacity: 1;
       animation: fadeInRight ease-in-out 1s;
     }
+
+    & .appearing-letters__symbol {
+      transform: translate3d(0, 10%, 0);
+    }
   }
+
+  &--prizes.active {
+    & .appearing-letters__symbol {
+      transform: translate3d(0, 10%, 0);
+    }
+  }
+
+  &--rules.active {
+    & .appearing-letters__symbol {
+      transform: translate3d(0, 10%, 0);
+    }
+  }
+
   &--game.active {
+    & .appearing-letters__symbol {
+      transform: translate3d(0, 10%, 0);
+    }
+  }
+
+  &--result {
     .form__field {
+      opacity: 0;
+      transition:
+        opacity 0.1ms linear $result-animation-delay + 0.5s,
+        width 1s linear $result-animation-delay + 0.5s;
+
+      &::placeholder {
+        opacity: 0;
+        transition: opacity 1s ease-in $result-animation-delay + 1s;
+      }
+    }
+    .form__button {
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      transition-delay: $result-animation-delay;
+    }
+    .form__text-btn {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      transition-delay: $result-animation-delay + 0.5s;
+    }
+  }
+
+  &.screen--animation{
+    & .result__img-wrapper .result__img {
+      &--flamingo {
+        transition: transform cubic-bezier(0.69, 1.5, 0.83, 1) $result-animation-delay;
+        transform: translateY(0);
+      }
+      &--suitcase {
+        transition: transform cubic-bezier(0.69, 1.5, 0.83, 1.18) $result-animation-delay;
+        transform: translateY(0);
+      }
+      &--leaf-left,
+      &--leaf-right,
+      &--leaf-green {
+        transition: opacity ease-out $result-animation-delay;
+        opacity: 1;
+      }
+    }
+
+    .form__button {
+      opacity: 1;
+    }
+    .form__text-btn {
+      opacity: 1;
+    }
+    .form__field {
+      opacity: 1;
       width: calc(100% - 21rem);
 
       @media (min-width: $stop-scaling) {
-        width: calc(100% - 210px);
+        width: calc(100% - 10rem);
       }
 
       @media (orientation: portrait) {
@@ -43,6 +118,10 @@
 
       @media (max-width: $mobile) and (orientation: landscape) {
         width: calc(100% - 5rem);
+      }
+
+      &::placeholder {
+        opacity: 1;
       }
     }
   }

@@ -53,6 +53,60 @@
     object-position: center;
   }
 }
+.result__img-wrapper {
+  position: relative;
+  width: 65%;
+  height: 80%;
+
+  & .result__img {
+    position: absolute;
+    width: 30%;
+    height: auto;
+
+    &--flamingo {
+      width: 35%;
+      left: 25%;
+      bottom: 0;
+      animation: fly-flamingo 3s $result-animation-delay ease-in-out infinite;
+      transform-origin: center;
+      transform: translateY(100%) scale(5%);
+    }
+
+    &--suitcase {
+      width: 50%;
+      right: 25%;
+      bottom: 0;
+      transform: translateY(100%) scale(5%);
+    }
+
+    &--leaf-left {
+      width: 35%;
+      left: 11%;
+      bottom: 2%;
+      opacity: 0;
+      animation: fly-leaf-left 3s $result-animation-delay ease-in-out forwards;
+      transform-origin: center 0;
+    }
+
+    &--leaf-right {
+      width: 35%;
+      right: 7%;
+      bottom: 14%;
+      opacity: 0;
+      animation: fly-leaf-right 3s $result-animation-delay ease-in-out forwards;
+      transform-origin: 0 center;
+    }
+
+    &--leaf-green {
+      width: 35%;
+      right: 10%;
+      bottom: 7%;
+      opacity: 0;
+      animation: fly-leaf-right 3s $result-animation-delay ease-in-out forwards;
+      transform-origin: 0 center;
+    }
+  }
+}
 
 .result__title {
   margin: 0 auto 2rem;

@@ -8,6 +8,7 @@ import result from './modules/result.js';
 import form from './modules/form.js';
 import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
+import appearingLetters from "./modules/appearingLetters";
 
 document.addEventListener(`DOMContentLoaded`, function () {
   document.body.classList.add(`loaded`);
@@ -25,3 +26,10 @@ social();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
+
+appearingLetters(`.intro__title`);
+appearingLetters(`.intro__date`);
+appearingLetters(`.slider__item-title`);
+appearingLetters(`.prizes__title`);
+appearingLetters(`.rules__title`);
+appearingLetters(`.game__title`);
