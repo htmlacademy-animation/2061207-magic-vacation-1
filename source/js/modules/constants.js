@@ -5,3 +5,10 @@ export const Page = {
   RULES: 3,
   GAME: 4
 };
+
+export const AppTheme = {
+  PURPLE: `purple`,
+  BLUE: `blue`,
+  LIGHT_BLUE: `light-blue`,
+  DEFAULT: `default`
+};

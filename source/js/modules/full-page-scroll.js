@@ -1,5 +1,7 @@
 import throttle from 'lodash/throttle';
-import {Page} from "./constants";
+import {AppTheme, Page} from "./constants";
+import {storySlider} from "./slider";
+import {setDefaultAppTheme, setAppTheme} from "./utils";
 
 export default class FullPageScroll {
   constructor() {
@@ -16,6 +18,8 @@ export default class FullPageScroll {
     this.onScrollHandler = this.onScroll.bind(this);
     this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
     this.endTransitionMainScreenHandler = this.endTransitionListener.bind(this);
+
+    setDefaultAppTheme();
 
   }
 
@@ -75,6 +79,13 @@ export default class FullPageScroll {
     }
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();
+
+    if (this.activeScreen === Page.HISTORY) {
+      setAppTheme(storySlider.activeIndex);
+    } else if (!document.body.classList.contains(AppTheme.DEFAULT)) {
+      setDefaultAppTheme();
+    }
+
   }
 
   changeVisibilityDisplay() {
@@ -89,7 +100,9 @@ export default class FullPageScroll {
   }
 
   changeActiveMenuItem() {
-    const activeItem = Array.from(this.menuElements).find((item) => item.dataset.href === this.screenElements[this.activeScreen].id);
+    const activeItem =
+      Array.from(this.menuElements)
+        .find((item) => item.dataset.href === this.screenElements[this.activeScreen].id);
     if (activeItem) {
       this.menuElements.forEach((item) => item.classList.remove(`active`));
       activeItem.classList.add(`active`);

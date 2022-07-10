@@ -271,12 +271,24 @@
 
     &:hover,
     &:focus {
-      color: $c-purple;
+      body.default &{
+        color: $purple-light;
+      }
+      body.purple &{
+        color: $purple-dark;
+      }
+      body.blue &{
+        color: $blue-light;
+      }
+      body.light-blue &{
+        color: $blue;
+      }
+
       outline: none;
 
       &::after {
         opacity: 1;
-        background-color: $c-purple;
+        background-color: currentColor;
         width: 100%;
         right: auto;
         left: 0;

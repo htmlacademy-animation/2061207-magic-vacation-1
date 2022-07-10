@@ -71,8 +71,19 @@ body.loaded {
     animation: fadeIn cubic-bezier(.15,0,.1,1.09) 1s;
   }
 
-  .screen__footer {
+  .screen__footer,
+  .screen__disclaimer{
     transform: translateY(0);
+  }
+
+  @media (max-width: $tablet) and (orientation: portrait) {
+    .screen__footer {
+      transform: translate(calc(-100% + 3.5rem), calc(100% - 3.5rem));
+    }
+    .screen__footer--full {
+      transition-delay: 0s;
+      transform: initial;
+    }
   }
 
   .page-header__logo {

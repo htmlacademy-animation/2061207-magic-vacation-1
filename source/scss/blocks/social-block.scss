@@ -37,8 +37,20 @@
   display: block;
   width: 4rem;
   height: 4rem;
-  color: $c-dark;
   border-radius: 50%;
+
+  body.default & {
+    color: $purple-dark;
+  }
+  body.purple &{
+    color: $purple-light;
+  }
+  body.blue &{
+    color: $blue;
+  }
+  body.light-blue &{
+    color: $blue-light;
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -70,7 +82,20 @@
 
   &:hover,
   .social-block--active & {
-    color: $c-purple;
+
+    body.default & {
+      color: $purple-light;
+    }
+    body.purple &{
+      color: $purple-dark;
+    }
+    body.blue &{
+      color: $blue-light;
+    }
+    body.light-blue &{
+      color: $blue;
+    }
+
 
     &::before {
       width: 112.5%;
@@ -79,11 +104,33 @@
   }
 
   &:focus {
-    color: $c-purple;
+    body.default & {
+      color: $purple-light;
+    }
+    body.purple &{
+      color: $purple-dark;
+    }
+    body.blue &{
+      color: $blue-light;
+    }
+    body.light-blue &{
+      color: $blue;
+    }
     outline: none;
 
     &::before {
-      border-color: $c-purple;
+      body.default & {
+        border-color: $purple-light;
+      }
+      body.purple &{
+        border-color: $purple-dark;
+      }
+      body.blue &{
+        border-color: $blue-light;
+      }
+      body.light-blue &{
+        border-color: $blue;
+      }
     }
 
     & + .social-block__list {
@@ -94,13 +141,32 @@
 
   &:active,
   &:active:focus {
-    color: $c-light;
+    body.default &,
+    body.purple &,
+    body.blue &,
+    body.light-blue & {
+      color: $c-light;
+    }
 
     &::before {
       width: 100%;
       height: 100%;
-      background-color: $c-purple;
-      border-color: $c-purple;
+      body.default & {
+        background-color: $purple-light;
+        border-color: $purple-light;
+      }
+      body.purple &{
+        background-color: $purple-dark;
+        border-color: $purple-dark;
+      }
+      body.blue &{
+        background-color: $blue-light;
+        border-color: $blue-light;
+      }
+      body.light-blue &{
+        background-color: $blue;
+        border-color: $blue;
+      }
     }
   }
 }
@@ -209,21 +275,47 @@
   }
 
   &:hover {
-    color: $c-purple;
+    body.default & {
+      color: $purple-light;
+    }
+    body.purple &{
+      color: $purple-dark;
+    }
+    body.blue &{
+      color: $blue-light;
+    }
+    body.light-blue &{
+      color: $blue;
+    }
   }
 
   &:focus {
     color: $c-purple;
     background-color: $c-light;
-    border-color: $c-purple;
     outline: none;
+    body.default & {
+      border-color: $purple-light;
+    }
+    body.purple &{
+      border-color: $purple-dark;
+    }
+    body.blue &{
+      border-color: $blue-light;
+    }
+    body.light-blue &{
+      border-color: $blue;
+    }
   }
 
   &:active,
   &:active:focus {
-    color: $c-purple;
+    body.default &,
+    body.purple &,
+    body.blue &,
+    body.light-blue & {
+      border-color: $c-light;
+    }
     background-color: $c-light;
-    border-color: $c-light;
   }
 
   svg {

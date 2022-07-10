@@ -1,11 +1,15 @@
 import Swiper from "swiper";
+import {setAppTheme} from "./utils";
+
+export let storySlider;
 
 export default () => {
-  let storySlider;
+
   let sliderContainer = document.getElementById(`story`);
   sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
 
   const setSlider = function () {
+
     if (((window.innerWidth / window.innerHeight) < 1) || window.innerWidth < 769) {
       storySlider = new Swiper(`.js-slider`, {
         pagination: {
@@ -60,6 +64,7 @@ export default () => {
             } else if (storySlider.activeIndex === 6) {
               sliderContainer.style.backgroundImage = `url("img/slide4.jpg")`;
             }
+            setAppTheme(storySlider.activeIndex);
           },
           resize: () => {
             storySlider.update();
