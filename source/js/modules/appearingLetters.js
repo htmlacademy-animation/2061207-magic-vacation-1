@@ -11,7 +11,7 @@ export default (classNameElementWithText = ``) => {
   }
   nodeElement.classList.add(`appearing-letters`);
 
-  const words = text.split(` `);
+  const words = text.split(/\s/);
 
   const documentFragment = document.createDocumentFragment();
 

@@ -155,7 +155,30 @@
   position: relative;
   width: 4rem;
   height: 4rem;
-  color: $c-dark;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+  will-change: opacity;
+
+  body.default & {
+    color: $purple-dark;
+  }
+  body.purple &{
+    color: $purple-light;
+  }
+  body.blue &{
+    color: $blue;
+  }
+  body.light-blue &{
+    color: $blue-light;
+  }
+
+  &--prev {
+    transform: translate(-4rem, 0);
+  }
+
+  &--next {
+    transform: translate(4rem, 0);
+  }
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -196,11 +219,21 @@
   }
 
   &:focus {
-    color: $c-purple;
     outline: none;
 
     &::before {
-      border-color: $c-purple;
+      body.default & {
+        border-color: $c-purple;
+      }
+      body.purple &{
+        border-color: $c-purple;
+      }
+      body.blue &{
+        border-color: $blue-light;
+      }
+      body.light-blue &{
+        border-color: $blue;
+      }
     }
   }
 
@@ -211,14 +244,24 @@
     &::before {
       width: 100%;
       height: 100%;
-      background-color: $c-purple;
-      border-color: $c-purple;
-    }
-  }
 
-  &.swiper-button-disabled {
-    opacity: 0.5;
-    pointer-events: none;
+      body.default & {
+        background-color: $c-purple;
+        border-color: $c-purple;
+      }
+      body.purple &{
+        background-color: $purple-dark;
+        border-color: $c-purple;
+      }
+      body.blue &{
+        background-color: $blue-light;
+        border-color: $blue-light;
+      }
+      body.light-blue &{
+        background-color: $blue;
+        border-color: $blue;
+      }
+    }
   }
 }
 
@@ -234,6 +277,7 @@
   font-weight: 400;
   font-size: 2.4rem;
   line-height: 4rem;
+
 
   @media (min-width: $stop-scaling) {
     bottom: 28px;

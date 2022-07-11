@@ -195,7 +195,11 @@
     font-size: 1.6rem;
   }
 
-  span {
+  .result__button-text {
+    opacity: 0;
+  }
+
+  .result__button-arrow {
     position: relative;
     margin-left: 1.5rem;
     width: 4rem;
@@ -234,7 +238,7 @@
   }
 
   &:hover {
-    span::before {
+    .result__button-arrow::before {
       width: 112.5%;
       height: 112.5%;
     }
@@ -243,18 +247,18 @@
   &:focus {
     outline: none;
 
-    span::before {
+    .result__button-arrow::before {
       border-color: $c-purple;
     }
   }
 
   &:active,
   &:active:focus {
-    span {
+    .result__button-arrow {
       color: $c-light;
     }
 
-    span::before {
+    .result__button-arrow::before {
       width: 100%;
       height: 100%;
       background-color: $c-purple;
